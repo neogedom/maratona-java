@@ -1,0 +1,69 @@
+MODIFICADORES:
+    (?i)      - Ignora maiúsulas e minúsculas.
+    (?x)     - Comentários.
+    (?m)    - Multilinhas.
+    \x        - Fuga literal.
+ 
+  obs:   Para utilizar o caractere "\" na expressão (sem valer como caractere de escape e sim como o caractere de texto normal) usar "\\x{005C}", onde "\\x" é para "\x" e "{005C}" é o código hexadecimal no padrão Unicode para "\". Também pode-se usar "\\u005C". Mais detalhes e opções nas observações dos metacaracteres.
+
+
+ 
+    METACARACTERES:
+    \b       - Limite de palavras (entre o fim da palavra e um espaço ou etc.).
+    \d       - Todos os dígitos.
+    \D       - Tudo o que não for dígito.
+    \s       - Espaços em branco (\t , \n , \f , \r, " ").
+    \S      - Carecteres que não são espaço em branco.
+    \w      - Caracteres de palavras (a-z , A-Z , dígitos , "_").
+    \W     - Tudo o que não for caractere de palavra.
+    .         - Qualquer caractere.
+  
+    ()       - Usado para agrupar uma expressão (ou parte de uma).
+    -        - Usado para indicar range (intervalo).
+    |        - Usado para indicar o operador lógico "ou" (lembrar do "||").
+    $      - Usado para indicar fim de linha (o final da String sendo analisada).
+    ^       - Usado para indicar começo de linha (o começo da String sendo analisada).
+
+  
+  obs:   Como o caractere "\" usado pelos metacaracteres é um caractere de escape do Java, ao utilizar um metacaractere em uma expressão regular é necessário adicionar um "\" extra. Ex: \\d
+  
+
+  obs:   O metacaractere "^" é um metacaractere de fronteira nesse contexto.
+  
+
+  obs:   Indicação de range (intervalo): [1-9] , [a-d], [A-Z]
+
+  
+  obs:   Quando se quer utilizar um caractere com significado especial nas expressões regulares sem esse significado especial, ou seja, como um caractere de texto ordinário (escaping characteres),pode-se:
+
+           - Usar o caractere de escape "\", adicionando-o antes do caractere em questão (por ser caractere de escape tanto para literais Strings no Java quanto para as expressões regulares, dobrasse o caractere de escape). Ex: \\.
+
+           - Usar "\\Q" e "\\E" para delimitar a área de caracteres que se quer considerar com o significado ordinário. Ex: \\Q$\\E
+
+           - Usar o método "Pattern.quote(String s)" passando como parâmetros os metacaracteres que deseja-se fazer o escape (ele vai considerar qualquer caractere passado com o valor de um caractere ordinário).
+
+           - Usar "\\x{Hexadecimal}" ou "\\uHexadecimal" passando-se o código hexadecimal do caractere desejado no padrão Unicode no lugar do "Hexadecimal". O valor hexadecimal que corresponde a determinado caractere pode ser facilmente encontrado na internet.
+  
+  
+  AGRUPAMENTOS:
+    [...]                     - Qualquer um dos caracteres que estejam dentro dos colchetes.
+    [a-z]                   - Qualquer caractere de "a" a "z".
+    [a-z&&[a-e]]      - Intersecção (nesse caso, de "a" a "e").
+    [a-e][p-z]           - Sequência (de "a" a "e" seguido de "p" a "z").
+    [^a-e]                 - Exceção (qualquer valor, exceto estes).
+    [a-z&&[^e-q]]    - Subtração (qualquer valor do primeiro intervalo menos os do
+                                segundo intervalo).
+  
+
+  obs: O "^" é um metacaractere de negação nesse contexto.
+  
+  
+  QUANTIFICADORES:
+    ?               - Zero ou uma ocorrência.
+    *               - Zero ou mais ocorrências.
+    +              - Uma ou mais ocorrências.
+    {n}           - Exatamente "n" ocorrências.
+    {n, }         - Pelo menos "n" ocorrências.
+    {n, m}     - De "n" até "m" ocorrências.
+  
+  obs: Quantificadores são colocados logo após o elemento, agrupamento ou metacaractere o qual se deseja especificar a quantidade. Ex: \\d{3} , 3? , [age]+ , (ad|da)*

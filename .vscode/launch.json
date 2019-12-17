@@ -1,0 +1,613 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ZipandoTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.ZipandoTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Turma",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Yserializacao.classes.Turma",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SerializacaoTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Yserializacao.test.SerializacaoTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StreamsTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Wio.teste.StreamsTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PathMatcherTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.PathMatcherTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FileVisitorTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.FileVisitorTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DirectoryStreamTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.DirectoryStreamTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DosFileAttributesTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.DosFileAttributesTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AtributosBasicosTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.AtributosBasicosTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - RelativizarTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.RelativizarTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ResolvendoPaths",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.ResolvendoPaths",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NormalizacaoTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.NormalizacaoTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CriandoPathTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Xnio.test.CriandoPathTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ConsoleTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Wio.teste.ConsoleTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FIleDiretorioTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Wio.teste.FIleDiretorioTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BufferedTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Wio.teste.BufferedTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FileWriterReaderTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Wio.teste.FileWriterReaderTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FileTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Wio.teste.FileTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ResourceBundleTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Vresourcebundle.test.ResourceBundleTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ScannerTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Uexpressoresregulares.test.ScannerTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TokensTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Uexpressoresregulares.test.TokensTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ExpressoesRegularesTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Uexpressoresregulares.test.ExpressoesRegularesTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ProfessorTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Aintroducaoclasses.test.ProfessorTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ExpressoesRegularesTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.expressoresregulares.test.ExpressoesRegularesTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SimpleDateFormatTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.datas.test.SimpleDateFormatTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - NumberFormatTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.datas.test.NumberFormatTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LocaleTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.datas.test.LocaleTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DateFormatTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.datas.test.DateFormatTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DatasTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.datas.test.DatasTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringBuilderTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.strings.test.StringBuilderTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringPerformanceTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.strings.test.StringPerformanceTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StringTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.strings.test.StringTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - WrappersTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.wrappers.test.WrappersTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AssertTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.assertivas.test.AssertTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CustomExceptionTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.excecao.checkedexceptions.test.CustomExceptionTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - tryWithResource",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.excecao.checkedexceptions.test.tryWithResource",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MultiplasRuntimeExceptionsTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.excecao.runtimeexception.test.MultiplasRuntimeExceptionsTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CheckedExceptions",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.excecao.checkedexceptions.CheckedExceptions",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - RuntimeExceptionTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.excecao.runtimeexception.test.RuntimeExceptionTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ErrorTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.excecao.test.ErrorTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DAOTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.polimorfismo.test.DAOTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PolimorfismoTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.polimorfismo.test.PolimorfismoTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ProdutoTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.interfaces.test.ProdutoTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - classesAbstratasTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.classesabstratas.test.classesAbstratasTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ClienteTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.enumeracoes.test.ClienteTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CarroTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.modificadorfinal.test.CarroTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - PessoaTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.sobrescrita.test.PessoaTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - HerancaTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.heranca.test.HerancaTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AssociacaoTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.associacao.exercicios.test.AssociacaoTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ClienteTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.modificadorestatico.test.ClienteTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CarroTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.modificadorestatico.test.CarroTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ClienteTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.blocodeinicializacao.test.ClienteTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - EstudanteTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.sobrecargaconstrutores.test.EstudanteTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FuncionarioTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.sobrecargametodos.test.FuncionarioTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - EstudanteTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.introducaometodos.test.EstudanteTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ProfessorTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.introducaometodos.test.ProfessorTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ParametrosTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.introducaometodos.test.ParametrosTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CalculadoraTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.introducaometodos.test.CalculadoraTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ProfessorTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.introducaoclasses.test.ProfessorTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CarroTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.introducaoclasses.test.CarroTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - EstudanteTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.introducaoclassestest.EstudanteTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula9OperadoresAtribuicao",
+            "request": "launch",
+            "mainClass": "br.com.abc.introducao.operadores.Aula9OperadoresAtribuicao",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula22ArraysMultidimensionais",
+            "request": "launch",
+            "mainClass": "br.com.abc.introducao.Aula22ArraysMultidimensionais",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula22ArraysMultidimensionais",
+            "request": "launch",
+            "mainClass": "app.Aula22ArraysMultidimensionais",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula21ArraysMultidimensionais",
+            "request": "launch",
+            "mainClass": "app.Aula21ArraysMultidimensionais",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula20Arrays",
+            "request": "launch",
+            "mainClass": "app.Aula20Arrays",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula19Arrays",
+            "request": "launch",
+            "mainClass": "app.Aula19Arrays",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula18Arrays",
+            "request": "launch",
+            "mainClass": "app.Aula18Arrays",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula18ControleFluxob",
+            "request": "launch",
+            "mainClass": "app.Aula18ControleFluxob",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula18ControleFluxo",
+            "request": "launch",
+            "mainClass": "app.Aula18ControleFluxo",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula16ExercicioControleFluxo",
+            "request": "launch",
+            "mainClass": "app.Aula16ExercicioControleFluxo",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula16ArrayControleFluxo",
+            "request": "launch",
+            "mainClass": "app.Aula16ArrayControleFluxo",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula15ControleFluxo",
+            "request": "launch",
+            "mainClass": "app.Aula15ControleFluxo",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula14ExercicioControleFluxo",
+            "request": "launch",
+            "mainClass": "app.Aula14ExercicioControleFluxo",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula13ControleFluxo",
+            "request": "launch",
+            "mainClass": "app.Aula13ControleFluxo",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula10ExercicioControleFluxo",
+            "request": "launch",
+            "mainClass": "app.Aula10ExercicioControleFluxo",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ControleFluxoAula11",
+            "request": "launch",
+            "mainClass": "app.ControleFluxoAula11",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ControleFluxoAula10",
+            "request": "launch",
+            "mainClass": "app.ControleFluxoAula10",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - OperadoresAtribuicaoAula9",
+            "request": "launch",
+            "mainClass": "app.OperadoresAtribuicaoAula9",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - OperadoresLogicosAula8",
+            "request": "launch",
+            "mainClass": "app.OperadoresLogicosAula8",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - OperadoresComparacaoAula7",
+            "request": "launch",
+            "mainClass": "app.OperadoresComparacaoAula7",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - OperadoresAula7",
+            "request": "launch",
+            "mainClass": "app.OperadoresAula7",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Operadores",
+            "request": "launch",
+            "mainClass": "app.Operadores",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ExercicioAula6b",
+            "request": "launch",
+            "mainClass": "app.ExercicioAula6b",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ExercicioAula6",
+            "request": "launch",
+            "mainClass": "app.ExercicioAula6",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aula6",
+            "request": "launch",
+            "mainClass": "app.Aula6",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "app.App",
+            "projectName": "JavaOnline"
+        }
+    ]
+}
