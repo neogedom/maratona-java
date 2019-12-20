@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ListTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.ListTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - EqualsTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.Zcolecoes.test.EqualsTest",
