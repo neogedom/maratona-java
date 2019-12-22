@@ -92,9 +92,12 @@ public class ListTest {
         // } // Para resolver isso, só criando um int size = nomes.size() fora do for
         //   // pq o objeto de comparação contra o qual a variável i está sendo comparado
         //   // não cresce indefinidamente
+        
+        // Para limpar a lista
+        nomes.clear();
 
         // A partir do Java 8 é possível trocar o foreach por isso
         // nomes.forEach(System.out::println);
-
+        
     }
 }

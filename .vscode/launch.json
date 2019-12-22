@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - SortProdutoTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.SortProdutoTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SortListTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.SortListTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ListCelularTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.ListCelularTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ListTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.Zcolecoes.test.ListTest",
