@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - IteratorTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.IteratorTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ConversaoListaArray",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.ConversaoListaArray",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - BinarySearchTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.Zcolecoes.test.BinarySearchTest",
