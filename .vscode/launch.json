@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - BinarySearchTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.BinarySearchTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - SortProdutoTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.Zcolecoes.test.SortProdutoTest",
