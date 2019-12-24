@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TreeSetTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.TreeSetTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SetTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.SetTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Aula6Operadores",
             "request": "launch",
             "mainClass": "br.com.abc.introducao.operadores.Aula6Operadores",
