@@ -15,7 +15,7 @@ import br.com.abc.javacore.Zcolecoes.classes.Produto;
 //     }
 // }
 
-// No TreeSet a cada nova inserção, ele coloca no começo da pilha
+// No TreeSet a cada nova inserção, ele ordena
 public class TreeSetTest {
     public static void main(String[] args) {
         Produto produto1 = new Produto("123", "Laptop Acer", 2000.0, 0);
