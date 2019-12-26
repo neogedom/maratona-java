@@ -15,7 +15,9 @@ import br.com.abc.javacore.Zcolecoes.classes.Produto;
 //     }
 // }
 
-// No TreeSet a cada nova inserção, ele ordena
+// No TreeSet a cada nova inserção, ele vai ordenando
+// POr causa da inserção automática, ele é um pouquinho mais lento
+// www.bigocheatsheet.com
 public class TreeSetTest {
     public static void main(String[] args) {
         Produto produto1 = new Produto("123", "Laptop Acer", 2000.0, 0);
