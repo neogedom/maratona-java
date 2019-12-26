@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ConsumidorMapTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.ConsumidorMapTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MapTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Zcolecoes.test.MapTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - TreeSetTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.Zcolecoes.test.TreeSetTest",
