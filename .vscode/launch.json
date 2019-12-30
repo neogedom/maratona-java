@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - WildCardTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZAgenerics.test.WildCardTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - GenericsTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZAgenerics.test.GenericsTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - QueueTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.Zcolecoes.test.QueueTest",

@@ -17,7 +17,7 @@ public class QueueTest {
         queue.add("D");
         queue.add("A");
         queue.add("B");
-        System.out.println(queue;
+        System.out.println(queue);
         // Métodos peek (pega o primeiro elemento e não remove),
         // offer, add um elemento dentro de um tamanho predefinido, desde que esse
         // tamanho não esteja estourado, se estiver estourado, devolve false (mesma
