@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - MetodoGenericoTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZAgenerics.test.MetodoGenericoTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ClasseGenericaTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZAgenerics.test.ClasseGenericaTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - WildCardTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZAgenerics.test.WildCardTest",
