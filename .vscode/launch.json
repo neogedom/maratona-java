@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ClassesInternasEstaticas",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZBclassesinternas.test.ClassesInternasEstaticas",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ClassesInternasTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZBclassesinternas.test.ClassesInternasTest",

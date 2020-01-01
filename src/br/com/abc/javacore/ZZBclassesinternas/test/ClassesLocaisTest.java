@@ -16,6 +16,7 @@ public class ClassesLocaisTest {
                 // eles forem finais
                 // Pois existe a possibilidade de a classe durar mais que o método e ocorrer em
                 // uma tentativa de uso do atributo sem que ele exista no heap de memória (Java 7)
+                // No Java 8, funciona pq ele entende que aquele atributo deve ser final ou effectively
                 System.out.println(sobrenome);
             }
         }
