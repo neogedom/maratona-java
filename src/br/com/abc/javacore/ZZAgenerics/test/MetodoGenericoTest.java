@@ -17,7 +17,7 @@ public class MetodoGenericoTest {
     //Suponhamos que precisemos criar um array, mas não sabemos qual o tipo do elemento que virá
     //Deve-se criar o tipo genérico do método antes do retorno
     //Esse método não retorna o tipo genérico, apenas define a existência dele
-    // Dá pra combinar o T com o wildcard
+    // Dá pra combinar o T com o wildcard, sem usar o ?
     public static <T extends Animal> List<T> criarArray(T t) {
         List<T> lista = new ArrayList<>(); 
         lista.add(t);

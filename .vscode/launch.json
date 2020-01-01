@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ClassesInternasTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZBclassesinternas.test.ClassesInternasTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - MetodoGenericoTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZAgenerics.test.MetodoGenericoTest",
