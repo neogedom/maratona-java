@@ -177,39 +177,164 @@ public class CompradorDB {
                 System.out.println("Suporta TYPE_FORWARD_ONLY");
                 // Se o driver suporta a atualização do registro com o resultSet aberto ou se o
                 // transforma em somente leitura
-                if (databaseMetaData.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+                if (databaseMetaData.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY,
+                        ResultSet.CONCUR_READ_ONLY)) {
                     System.out.println("Também suporta CONCUR_UPDATABLE");
                 }
 
             }
 
-            // Se o driver suporta deixar o registro do resultSet inalterado mesmo que haja alterações no banco de dados
+            // Se o driver suporta deixar o registro do resultSet inalterado mesmo que haja
+            // alterações no banco de dados
             // O resultSet cacheado na memória
-            // O resultSet pode ir para frente e para trás ou acessar alguma posição em particular
+            // O resultSet pode ir para frente e para trás ou acessar alguma posição em
+            // particular
             if (databaseMetaData.supportsResultSetType(ResultSet.TYPE_SCROLL_INSENSITIVE)) {
                 System.out.println("Suporta TYPE_SCROLL_INSENSITIVE");
                 // Se o driver suporta a atualização do registro com o resultSet aberto ou se o
                 // transforma em somente leitura
-                if (databaseMetaData.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+                if (databaseMetaData.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY,
+                        ResultSet.CONCUR_READ_ONLY)) {
                     System.out.println("Também suporta CONCUR_UPDATABLE");
-            
+
                 }
             }
 
-            // Se o driver suporta replicar qualquer alteração do estado do banco de dados no resultSet automaticamente
             if (databaseMetaData.supportsResultSetType(ResultSet.TYPE_SCROLL_SENSITIVE)) {
                 System.out.println("Suporta TYPE_SCROLL_SENSITIVE");
-                // Se o driver suporta a atualização do registro com o resultSet aberto ou se o
-                // transforma em somente leitura
-                if (databaseMetaData.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+                if (databaseMetaData.supportsResultSetConcurrency(ResultSet.TYPE_FORWARD_ONLY,
+                        ResultSet.CONCUR_READ_ONLY)) {
                     System.out.println("Também suporta CONCUR_UPDATABLE");
-            
+
                 }
             }
 
             ConexaoFactory.close(conn);
         } catch (SQLException e) {
-            // TODO: handle exception
         }
     }
+
+    public static void testTypeScroll() {
+        String sql = "SELECT id, nome, cpf FROM comprador;\n";
+        Connection conn = ConexaoFactory.getConexao();
+        try {
+            // O correto é sempre definir no createStatement o que o resultSet será
+            // Para informar o que o driver suporta
+            // Em alguns bancos nem sequer funciona se não definir o tipo do resultSet
+            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = stmt.executeQuery(sql);
+
+            // O que dá pra fazer com TYPE_SCROLL_INSENSITIVE
+            // 1 - Ir direto para a última linha do select
+            if (rs.last()) {
+
+                System.out.println(
+                        "Última linha " + new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+                System.out.println("Número da última linha " + rs.getRow());
+            }
+            // 2 - Ir direto para a primeira linha do select
+            System.out.println("Retornou para a primeira linha? " + rs.first());
+            System.out.println("Primeira linha " + rs.getRow());
+
+            // 3 - Ir direto para a linha informada
+            rs.absolute(4);
+            System.out.println("Linha 4 " + new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+
+            // 4 - Ir para alguma outra linha baseado na linha atual
+            // Se voltarmos mais do que existe no resultSet (por exemplo, -5), ele dá um
+            // erro em tempo de execução
+            rs.relative(-1);
+            System.out.println("Linha 3 " + new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+
+            // 5 - Conferir se é a última linha (ou se já passou dela com isAfterLast(), ou
+            // se já passou da primeira com isBeforeFirst())
+            System.out.println(rs.isLast());
+            System.out.println(rs.isFirst());
+            System.out.println(rs.isAfterLast());
+            System.out.println(rs.isBeforeFirst());
+
+            // 6 - Iterar na forma inversa com previous()
+            rs.afterLast();
+            System.out.println("------------------------------");
+            while (rs.previous()) {
+                System.out.println(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
+            }
+            ConexaoFactory.close(conn, stmt, rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Fazendo updates por meio do ResultSet
+    // Isso deixa os DBAs loucos
+    public static void updateNomesToLowerCase() {
+
+        String sql = "SELECT id, nome, cpf FROM comprador;\n";
+        Connection conn = ConexaoFactory.getConexao();
+        
+        try {
+            // DatabaseMetaData databaseMetaData = conn.getMetaData();
+            // É importante marcar como Concur_UPDATABLE para dar certo a operação de update
+            // pelo ResultSet
+            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = stmt.executeQuery(sql);
+
+            // //Dá para detectar alterações no estado do BD por meio do 
+            // Mas depende do driver
+            // System.out.println(databaseMetaData.updatesAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+            // System.out.println(databaseMetaData.insertsAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+            // System.out.println(databaseMetaData.deletesAreDetected(ResultSet.TYPE_SCROLL_INSENSITIVE));
+
+            //ALTERANDO POR MEIO DO RESULTSET
+            if (rs.next()) {
+                // A atualização do registro é no resultSet, não no banco de dados
+                // dois parâmetros: o label da coluna e o valor desejado
+                // É possível ser usado para realizar operações e cálculos complicados e alterar
+                // posteriormente no BD
+                rs.updateString("nome", rs.getString("nome").toUpperCase());
+                //Caso queira cancelar alguma atualização, a documentação não recomenda usar o updateString() de novo
+                // Nesse caso, usa-se o cancelUpdates()
+                // O cancelRowUpdates() não pode ser chamado depois do updateRow() (não adianta nada)
+                // Atualizando no banco de dados
+                rs.updateRow();
+                // rowUpdated confere se a coluna foi atualizada
+                // depende do driver
+                // if (rs.rowUpdated()) {
+                //     System.out.println("Linha atualizada");
+                // }
+            }
+
+            //INSERINDO POR MEIO DO RESULTSET
+            // rs.absolute(2);
+            // String nome = rs.getString("nome");
+            // // Move o cursor para uma linha temporária onde não há valores
+            // rs.moveToInsertRow();
+            // // System.out.println(nome);
+            // // System.out.println(rs.getString("nome"));
+            // rs.updateString("nome", nome.toUpperCase());
+            // rs.updateString("cpf", "999.999.999-99");
+            // //insertRow para inserir nova linha depois de ter alterado ela no resultSet
+            // rs.insertRow();
+            // // Move para a linha que estava antes de mudar para a InsertRow
+            // rs.moveToCurrentRow();
+            // System.out.println(rs.getString("nome") + " row: " + rs.getRow());
+
+
+            //DELETANDO POR MEIO DO RESULTSET
+            rs.absolute(7);
+            rs.deleteRow();
+
+            // Será que depois de ter feito o update acima, o resultSet permance o mesmo?
+            // rs.beforeFirst();
+            // while (rs.next()) {
+            // System.out.println(rs.getString("nome"));
+            // }
+
+            ConexaoFactory.close(conn, stmt, rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
