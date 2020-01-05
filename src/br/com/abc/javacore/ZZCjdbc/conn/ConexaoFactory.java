@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import javax.sql.rowset.JdbcRowSet;
+import javax.sql.rowset.RowSetProvider;
+
 import java.sql.ResultSet;
 
 //JDBC = vem dos primórdios do Java e tem como objetivo abstrair você dos problemas de banco de dados
@@ -17,7 +21,7 @@ import java.sql.ResultSet;
 // A conexão vem através de uma classe chamada DriverManager
 public class ConexaoFactory {
 
-    //Criando os métodos estáticos pq é apenas uma conexão para ser pega
+    // Criando os métodos estáticos pq é apenas uma conexão para ser pega
     public static Connection getConexao() {
         // Precisamos de três coisas para obter uma conexão
         // Uma url, um usuário e uma senha
@@ -43,7 +47,30 @@ public class ConexaoFactory {
 
     }
 
-    // Criando close aqui para não ter que ficar repetindo toda vez que eu precisar pegar uma conexão
+    // rowset = resultSet
+    // rowSet é mais simples, encapsula a preparedStatement, etc. e não trabalha com
+    // a interface Connection
+    public static JdbcRowSet getRowSetConnection() {
+        String url = "jdbc:mysql://localhost/agencia?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=UTC";
+        String user = "root";
+        String password = "";
+
+        try {
+            JdbcRowSet jdbcRowSet = RowSetProvider.newFactory().createJdbcRowSet();
+            jdbcRowSet.setUrl(url);
+            jdbcRowSet.setUsername(user);
+            jdbcRowSet.setPassword(password);
+            return jdbcRowSet;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+
+    // Criando close aqui para não ter que ficar repetindo toda vez que eu precisar
+    // pegar uma conexão
     public static void close(Connection connection) {
         try {
             if (connection != null) {
@@ -54,8 +81,8 @@ public class ConexaoFactory {
         }
     }
 
-    //Statement possui close
-    public static void close (Connection connection, Statement statement) {
+    // Statement possui close
+    public static void close(Connection connection, Statement statement) {
         close(connection);
         try {
             if (statement != null) {
@@ -66,12 +93,22 @@ public class ConexaoFactory {
         }
     }
 
-    //ResultSet também possui close
-    public static void close (Connection connection, Statement statement, ResultSet resultSet) {
+    // ResultSet também possui close
+    public static void close(Connection connection, Statement statement, ResultSet resultSet) {
         close(connection, statement);
         try {
             if (resultSet != null) {
                 resultSet.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void close(JdbcRowSet jrs) {
+        try {
+            if (jrs != null) {
+                jrs.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();

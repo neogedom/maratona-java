@@ -29,8 +29,10 @@ public class TesteConexao {
         // wildcard ?
         // System.out.println(CompradorDB.searchByNamePreparedStatement("oao"));
         // CompradorDB.updatePreparedStatement(new Comprador(1, "011.011.011-01", "Prepared Statement da Silva"));
-        System.out.println(CompradorDB.searchByNameCallableStatement("ao"));
-
+        // System.out.println(CompradorDB.searchByNameCallableStatement("ao"));
+        System.out.println(CompradorDB.searchByNameRowSet("oao"));
+        // CompradorDB.updateRowSet(new Comprador(1, "011.011.011-01", "Row Set de Oliveira"));
+       
 
     }
 
