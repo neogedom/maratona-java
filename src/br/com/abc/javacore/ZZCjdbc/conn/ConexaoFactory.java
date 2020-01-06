@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 import javax.sql.rowset.RowSetProvider;
 
@@ -50,17 +51,40 @@ public class ConexaoFactory {
     // rowset = resultSet
     // rowSet é mais simples, encapsula a preparedStatement, etc. e não trabalha com
     // a interface Connection
+    // Pegando uma conexão do JdbcRowSet (o RowSet conectado ao banco)
     public static JdbcRowSet getRowSetConnection() {
         String url = "jdbc:mysql://localhost/agencia?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=UTC";
         String user = "root";
         String password = "";
 
         try {
-            JdbcRowSet jdbcRowSet = RowSetProvider.newFactory().createJdbcRowSet();
-            jdbcRowSet.setUrl(url);
-            jdbcRowSet.setUsername(user);
-            jdbcRowSet.setPassword(password);
-            return jdbcRowSet;
+            JdbcRowSet cachedRowSet = RowSetProvider.newFactory().createJdbcRowSet();
+            cachedRowSet.setUrl(url);
+            cachedRowSet.setUsername(user);
+            cachedRowSet.setPassword(password);
+            return cachedRowSet;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+
+    }
+
+    // Pegando uma conexão do CachedRowSet (o RowSet desconectado do banco)
+    public static CachedRowSet getRowSetConnectionCached() {
+        // Para o cachedRowSet é importante usar o parâmetro relaxAutoCommit=true para
+        // não dar exceção do SyncProvider e poder usar o acceptChanges()
+        String url = "jdbc:mysql://localhost/agencia?allowPublicKeyRetrieval=true&useSSL=false&relaxAutoCommit=true";
+        String user = "root";
+        String password = "";
+
+        try {
+            CachedRowSet cachedRowSet = RowSetProvider.newFactory().createCachedRowSet();
+            cachedRowSet.setUrl(url);
+            cachedRowSet.setUsername(user);
+            cachedRowSet.setPassword(password);
+            return cachedRowSet;
         } catch (SQLException e) {
             e.printStackTrace();
         }

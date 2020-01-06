@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.List;
 
+import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
 
 import com.mysql.cj.jdbc.JdbcConnection;
@@ -30,14 +31,14 @@ public class CompradorDB {
                 + comprador.getNome() + "');\n";
         Connection conn = ConexaoFactory.getConexao();
         try {
-            Statement jrs = conn.createStatement();
+            Statement crs = conn.createStatement();
             // - Para mudar o estado do banco de dados, usar executeUpdate que retorna a
             // quantidade de linhas alteradas (int)
             // - Se não tiver certeza de qual instrução SQL virá, usar execute que retorna
             // true caso tenha algum resultSet e false caso tenha apenas alterado o estado
             // do banco
-            jrs.executeUpdate(sql);
-            ConexaoFactory.close(conn, jrs);
+            crs.executeUpdate(sql);
+            ConexaoFactory.close(conn, crs);
             System.out.println("Registro inserido com sucesso");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -52,9 +53,9 @@ public class CompradorDB {
         String sql = "DELETE FROM `agencia`.`comprador` WHERE (`id` = '" + comprador.getId() + "');\n";
         Connection conn = ConexaoFactory.getConexao();
         try {
-            Statement jrs = conn.createStatement();
-            jrs.executeUpdate(sql);
-            ConexaoFactory.close(conn, jrs);
+            Statement crs = conn.createStatement();
+            crs.executeUpdate(sql);
+            ConexaoFactory.close(conn, crs);
             System.out.println("Registro excluído com sucesso");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -71,9 +72,9 @@ public class CompradorDB {
                 + comprador.getNome() + "' WHERE (`id` = '" + comprador.getId() + "');\n";
         Connection conn = ConexaoFactory.getConexao();
         try {
-            Statement jrs = conn.createStatement();
-            jrs.executeUpdate(sql);
-            ConexaoFactory.close(conn, jrs);
+            Statement crs = conn.createStatement();
+            crs.executeUpdate(sql);
+            ConexaoFactory.close(conn, crs);
             System.out.println("Registro alterado com sucesso");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,10 +87,10 @@ public class CompradorDB {
         String sql = "SELECT id, nome, cpf FROM comprador;\n";
         Connection conn = ConexaoFactory.getConexao();
         try {
-            Statement jrs = conn.createStatement();
+            Statement crs = conn.createStatement();
             // - Se você quiser fazer uma consulta que terá vários resultados, usar o
             // executeQuery que retorna um resultSet
-            ResultSet rs = jrs.executeQuery(sql);
+            ResultSet rs = crs.executeQuery(sql);
             // O resultSet retorna uma lista
             List<Comprador> compradorList = new ArrayList<>();
             // Para andar no resultSet, use next(). O resultSet sempre aponta para antes do
@@ -111,7 +112,7 @@ public class CompradorDB {
                 compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
 
             }
-            ConexaoFactory.close(conn, jrs, rs);
+            ConexaoFactory.close(conn, crs, rs);
             return compradorList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -124,14 +125,14 @@ public class CompradorDB {
         String sql = "SELECT id, nome, cpf FROM comprador WHERE nome LIKE '%" + nome + "%';\n";
         Connection conn = ConexaoFactory.getConexao();
         try {
-            Statement jrs = conn.createStatement();
-            ResultSet rs = jrs.executeQuery(sql);
+            Statement crs = conn.createStatement();
+            ResultSet rs = crs.executeQuery(sql);
             List<Comprador> compradorList = new ArrayList<>();
             while (rs.next()) {
                 compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
 
             }
-            ConexaoFactory.close(conn, jrs, rs);
+            ConexaoFactory.close(conn, crs, rs);
             return compradorList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -147,8 +148,8 @@ public class CompradorDB {
         String sql = "SELECT * FROM agencia.comprador";
         Connection conn = ConexaoFactory.getConexao();
         try {
-            Statement jrs = conn.createStatement();
-            ResultSet rs = jrs.executeQuery(sql);
+            Statement crs = conn.createStatement();
+            ResultSet rs = crs.executeQuery(sql);
             // Pegando os metadados do resultSet
             ResultSetMetaData resultSetMetaData = rs.getMetaData();
             // Movendo o cursor para a primeira posição
@@ -165,7 +166,7 @@ public class CompradorDB {
                 System.out.println("Tamanho da coluna: " + resultSetMetaData.getColumnDisplaySize(i));
             }
 
-            ConexaoFactory.close(conn, jrs, rs);
+            ConexaoFactory.close(conn, crs, rs);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -228,8 +229,8 @@ public class CompradorDB {
             // O correto é sempre definir no createStatement o que o resultSet será
             // Para informar o que o driver suporta
             // Em alguns bancos nem sequer funciona se não definir o tipo do resultSet
-            Statement jrs = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = jrs.executeQuery(sql);
+            Statement crs = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = crs.executeQuery(sql);
 
             // O que dá pra fazer com TYPE_SCROLL_INSENSITIVE
             // 1 - Ir direto para a última linha do select
@@ -266,7 +267,7 @@ public class CompradorDB {
             while (rs.previous()) {
                 System.out.println(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
             }
-            ConexaoFactory.close(conn, jrs, rs);
+            ConexaoFactory.close(conn, crs, rs);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -283,8 +284,8 @@ public class CompradorDB {
             // DatabaseMetaData databaseMetaData = conn.getMetaData();
             // É importante marcar como Concur_UPDATABLE para dar certo a operação de update
             // pelo ResultSet
-            Statement jrs = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs = jrs.executeQuery(sql);
+            Statement crs = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = crs.executeQuery(sql);
 
             // //Dá para detectar alterações no estado do BD por meio do
             // Mas depende do driver
@@ -338,7 +339,7 @@ public class CompradorDB {
             // System.out.println(rs.getString("nome"));
             // }
 
-            ConexaoFactory.close(conn, jrs, rs);
+            ConexaoFactory.close(conn, crs, rs);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -355,16 +356,16 @@ public class CompradorDB {
         Connection conn = ConexaoFactory.getConexao();
         try {
             // com PreparedStatement, primeiro preparamos o statement trocando os wildcards
-            PreparedStatement jrs = conn.prepareStatement(sql);
-            jrs.setString(1, "%" + nome + "%");
+            PreparedStatement crs = conn.prepareStatement(sql);
+            crs.setString(1, "%" + nome + "%");
             // Ao usar o PreparedStatement, o executeQuery não recebe parâmetro
-            ResultSet rs = jrs.executeQuery();
+            ResultSet rs = crs.executeQuery();
             List<Comprador> compradorList = new ArrayList<>();
             while (rs.next()) {
                 compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
 
             }
-            ConexaoFactory.close(conn, jrs, rs);
+            ConexaoFactory.close(conn, crs, rs);
             return compradorList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -382,12 +383,12 @@ public class CompradorDB {
         String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ? WHERE (`id` = ?)";
         Connection conn = ConexaoFactory.getConexao();
         try {
-            PreparedStatement jrs = conn.prepareStatement(sql);
-            jrs.setString(1, comprador.getCpf());
-            jrs.setString(2, comprador.getNome());
-            jrs.setInt(3, comprador.getId());
-            jrs.executeUpdate();
-            ConexaoFactory.close(conn, jrs);
+            PreparedStatement crs = conn.prepareStatement(sql);
+            crs.setString(1, comprador.getCpf());
+            crs.setString(2, comprador.getNome());
+            crs.setInt(3, comprador.getId());
+            crs.executeUpdate();
+            ConexaoFactory.close(conn, crs);
             System.out.println("Registro alterado com sucesso");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -400,15 +401,15 @@ public class CompradorDB {
         String sql = "CALL `agencia`.`SP_getCompradoresPorNome`( ? );";
         Connection conn = ConexaoFactory.getConexao();
         try {
-            CallableStatement jrs = conn.prepareCall(sql);
-            jrs.setString(1, "%" + nome + "%");
-            ResultSet rs = jrs.executeQuery();
+            CallableStatement crs = conn.prepareCall(sql);
+            crs.setString(1, "%" + nome + "%");
+            ResultSet rs = crs.executeQuery();
             List<Comprador> compradorList = new ArrayList<>();
             while (rs.next()) {
                 compradorList.add(new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome")));
 
             }
-            ConexaoFactory.close(conn, jrs, rs);
+            ConexaoFactory.close(conn, crs, rs);
             return compradorList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -420,27 +421,27 @@ public class CompradorDB {
     // RowSet usa outro tipo de conexão. Não é Connection
     public static List<Comprador> searchByNameRowSet(String nome) {
         String sql = "SELECT id, nome, cpf FROM comprador WHERE nome LIKE ?";
-        JdbcRowSet jrs = ConexaoFactory.getRowSetConnection();
+        JdbcRowSet crs = ConexaoFactory.getRowSetConnection();
 
-        //Adicionando um Listener para capturar os eventos que acontecerem no RowSet
-        jrs.addRowSetListener(new MyRowSetListener());
+        // Adicionando um Listener para capturar os eventos que acontecerem no RowSet
+        crs.addRowSetListener(new MyRowSetListener());
         try {
             // com rowSet o PreparedStatement não existe
-            // PreparedStatement jrs = conn.prepareStatement(sql);
+            // PreparedStatement crs = conn.prepareStatement(sql);
             // Ao invés disso, usa o setCommand
-            jrs.setCommand(sql);
-            jrs.setString(1, "%" + nome + "%");
+            crs.setCommand(sql);
+            crs.setString(1, "%" + nome + "%");
             // Ao usar o RowSet, se usa o execute ao invés de executeQuery
-            jrs.execute();
+            crs.execute();
             List<Comprador> compradorList = new ArrayList<>();
 
             // com o RowSet, não é necessário nenhum resultSet. Está tudo já dentro do
             // JDBCRowSet
-            while (jrs.next()) {
-                compradorList.add(new Comprador(jrs.getInt("id"), jrs.getString("cpf"), jrs.getString("nome")));
+            while (crs.next()) {
+                compradorList.add(new Comprador(crs.getInt("id"), crs.getString("cpf"), crs.getString("nome")));
 
             }
-            ConexaoFactory.close(jrs);
+            ConexaoFactory.close(crs);
             return compradorList;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -459,28 +460,62 @@ public class CompradorDB {
             return;
         }
 
-        //Como fazer pra dar update? 1 - cria um sql de consulta
+        // Como fazer pra dar update? 1 - cria um sql de consulta
         String sql = "SELECT * FROM comprador WHERE id = ?";
-        // String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ? WHERE (`id` = ?)";
-        JdbcRowSet jrs = ConexaoFactory.getRowSetConnection();
-        //Adicionando um Listener para capturar os eventos que acontecerem no RowSet
-        jrs.addRowSetListener(new MyRowSetListener());
-        
+        // String sql = "UPDATE `agencia`.`comprador` SET `cpf` = ?, `nome` = ? WHERE
+        // (`id` = ?)";
+
+        JdbcRowSet crs = ConexaoFactory.getRowSetConnection(); // JdbcRowSet é um rowSet conectado que dá pra fazer
+                                                               // coisas em paralelo no banco de dados
+        // Adicionando um Listener para capturar os eventos que acontecerem no RowSet
+        crs.addRowSetListener(new MyRowSetListener());
+
         try {
-            //Lembre-se, ao invés do preparedStatement, usar o setCommand
-            jrs.setCommand(sql);
-            // jrs.setString(1, comprador.getCpf());
-            // jrs.setString(2, comprador.getNome());
-            jrs.setInt(1, comprador.getId());
-            jrs.execute();
+            // Lembre-se, ao invés do preparedStatement, usar o setCommand
+            crs.setCommand(sql);
+            // crs.setString(1, comprador.getCpf());
+            // crs.setString(2, comprador.getNome());
+            crs.setInt(1, comprador.getId());
+            crs.execute();
 
             // 2 - acessa os dados que vieram dentro do rowSet, anda com next
-            jrs.next();
+            crs.next();
             // 3 - atualiza a String dentro do rowSet (como no SCROLL_INSENSITIVE)
-            jrs.updateString("nome", "VINICIUS");
+            crs.updateString("nome", "VINICIUS");
             // 4- Atualiza a linha inteira no banco de dados
-            jrs.updateRow();
-            ConexaoFactory.close(jrs);
+            crs.updateRow();
+            ConexaoFactory.close(crs);
+            System.out.println("Registro alterado com sucesso");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void updateRowSetCached(Comprador comprador) {
+        if (comprador == null || comprador.getId() == null) {
+            System.out.println("Não foi possível atualizar o registro");
+            return;
+        }
+
+         String sql = "SELECT * FROM comprador WHERE id = ?";
+     
+        CachedRowSet crs = ConexaoFactory.getRowSetConnectionCached(); // CachedRowSet é um rowSet desconectado que dá pra fazer
+                                                               // coisas no banco de dados em cache
+       
+        try {
+            crs.setCommand(sql);
+            crs.setInt(1, comprador.getId());
+            crs.execute();
+
+            crs.next();
+            crs.updateString("nome", "VVV");
+            crs.updateRow();
+            //acceptChages para mandar as alterações realizadas em cache para o banco de dados
+            crs.acceptChanges();
+
+            //Por estar trabalhando com o chached, ele automaticamente fecha a conexão
+            // não preciso fechar explicitamente
+            // ConexaoFactory.close(crs);
             System.out.println("Registro alterado com sucesso");
         } catch (SQLException e) {
             e.printStackTrace();

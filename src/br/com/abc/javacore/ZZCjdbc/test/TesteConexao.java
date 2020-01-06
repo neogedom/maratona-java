@@ -32,6 +32,8 @@ public class TesteConexao {
         // System.out.println(CompradorDB.searchByNameCallableStatement("ao"));
         System.out.println(CompradorDB.searchByNameRowSet("oao"));
         // CompradorDB.updateRowSet(new Comprador(1, "011.011.011-01", "Row Set de Oliveira"));
+
+        CompradorDB.updateRowSetCached(new Comprador(1, "011.011.011-01", "Row Set de Oliveira"));
        
 
     }
