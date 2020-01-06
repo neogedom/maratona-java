@@ -2,6 +2,8 @@ package br.com.abc.javacore.ZZCjdbc.test;
 
 import br.com.abc.javacore.ZZCjdbc.classes.Comprador;
 import br.com.abc.javacore.ZZCjdbc.db.CompradorDB;
+
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -15,25 +17,35 @@ public class TesteConexao {
         // atualizar();
         // List<Comprador> compradorList = selecionarTudo();
         // List<Comprador> compradorList2 = listarPorNome("oão");
-        
+
         // System.out.println(compradorList2);
         // CompradorDB.selectMetadata();
         // CompradorDB.checkDriverStatus();
         // CompradorDB.testTypeScroll();
         // CompradorDB.updateNomesToLowerCase();
-        
-        //Perigo: SQLInjection
-        // System.out.println(CompradorDB.searchByNamePreparedStatement("oao' or 'X'='X"));
+
+        // Perigo: SQLInjection
+        // System.out.println(CompradorDB.searchByNamePreparedStatement("oao' or
+        // 'X'='X"));
         // X = X elimina todo o where
-        //O PreparedStatement não deixa colocar o apóstrofo e ao invés de colocar o parâmetro, troca por um
+        // O PreparedStatement não deixa colocar o apóstrofo e ao invés de colocar o
+        // parâmetro, troca por um
         // wildcard ?
         // System.out.println(CompradorDB.searchByNamePreparedStatement("oao"));
-        // CompradorDB.updatePreparedStatement(new Comprador(1, "011.011.011-01", "Prepared Statement da Silva"));
+        // CompradorDB.updatePreparedStatement(new Comprador(1, "011.011.011-01",
+        // "Prepared Statement da Silva"));
         // System.out.println(CompradorDB.searchByNameCallableStatement("ao"));
-        System.out.println(CompradorDB.searchByNameRowSet("oao"));
-        // CompradorDB.updateRowSet(new Comprador(1, "011.011.011-01", "Row Set de Oliveira"));
-
-        CompradorDB.updateRowSetCached(new Comprador(1, "011.011.011-01", "Row Set de Oliveira"));
+        // System.out.println(CompradorDB.searchByNameRowSet("oao"));
+        // CompradorDB.updateRowSet(new Comprador(1, "011.011.011-01", "Row Set de
+        // Oliveira"));
+        // Não deu certo por causa do autocommit
+        // CompradorDB.updateRowSetCached(new Comprador(1, "011.011.011-01", "Row Set de
+        // Oliveira"));
+        try {
+            CompradorDB.saveTransaction();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
        
 
     }

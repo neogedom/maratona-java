@@ -3,14 +3,13 @@ package br.com.abc.javacore.ZZCjdbc.db;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.sql.Savepoint;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.List;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.JdbcRowSet;
-
-import com.mysql.cj.jdbc.JdbcConnection;
 
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
@@ -42,6 +41,54 @@ public class CompradorDB {
             System.out.println("Registro inserido com sucesso");
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void saveTransaction() throws SQLException {
+        String sql1 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES (' TESTE1', ' TESTE1');\n";
+        String sql2 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES (' TESTE2', ' TESTE2');\n";
+        String sql3 = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES (' TESTE3', ' TESTE3');\n";
+        Connection conn = ConexaoFactory.getConexao();
+        // Para usar um savepoint, inicialize-o
+        Savepoint savepoint = null;
+        try {
+            // Primeira coisa a se fazer para iniciar uma transação é colocar o autocommit
+            // como falso
+            conn.setAutoCommit(false);
+            Statement crs = conn.createStatement();
+            // - Para mudar o estado do banco de dados, usar executeUpdate que retorna a
+            // quantidade de linhas alteradas (int)
+            // - Se não tiver certeza de qual instrução SQL virá, usar execute que retorna
+            // true caso tenha algum resultSet e false caso tenha apenas alterado o estado
+            // do banco
+            crs.executeUpdate(sql1);
+            savepoint = conn.setSavepoint("One"); // usado para salvar um ponto na transação que deverá ser comitado
+                                                  // mesmo se
+            // a transação der errado. Não é obrigado passar nome no construtor
+            // Apenas tome cuidado, pq alguns drivers não suportam muitos savepoints
+            // por meio do DataBaseMetaData é possível ver se o driver suporta savepoint
+            // Caso o driver do banco de dados só suporte um você pode reaproveitar o savepoint assim:
+            // conn.releaseSavepoint(savepoint);
+
+            if (true)
+                throw new SQLException();
+            crs.executeUpdate(sql2);
+            crs.executeUpdate(sql3);
+
+            // Para confirmar as alterações no estado do banco de dados
+            conn.commit();
+            // Caso formos continuar usando a conexão é importante voltá-la para true
+            // mas se estivermos fechando a conexão, não tem problema deixar como false
+            // conn.setAutoCommit(true);
+            ConexaoFactory.close(conn, crs);
+            System.out.println("Registro inserido com sucesso");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Quando se trabalha com transações no try é importante dar rollback no catch
+            // É possível dar rollback até algum savepoint definido
+            conn.rollback(savepoint);
+            // Se eu voltar, é preciso que eu commite
+            conn.commit();
         }
     }
 
@@ -497,11 +544,12 @@ public class CompradorDB {
             return;
         }
 
-         String sql = "SELECT * FROM comprador WHERE id = ?";
-     
-        CachedRowSet crs = ConexaoFactory.getRowSetConnectionCached(); // CachedRowSet é um rowSet desconectado que dá pra fazer
-                                                               // coisas no banco de dados em cache
-       
+        String sql = "SELECT * FROM comprador WHERE id = ?";
+
+        CachedRowSet crs = ConexaoFactory.getRowSetConnectionCached(); // CachedRowSet é um rowSet desconectado que dá
+                                                                       // pra fazer
+        // coisas no banco de dados em cache
+
         try {
             crs.setCommand(sql);
             crs.setInt(1, comprador.getId());
@@ -510,10 +558,11 @@ public class CompradorDB {
             crs.next();
             crs.updateString("nome", "VVV");
             crs.updateRow();
-            //acceptChages para mandar as alterações realizadas em cache para o banco de dados
+            // acceptChages para mandar as alterações realizadas em cache para o banco de
+            // dados
             crs.acceptChanges();
 
-            //Por estar trabalhando com o chached, ele automaticamente fecha a conexão
+            // Por estar trabalhando com o chached, ele automaticamente fecha a conexão
             // não preciso fechar explicitamente
             // ConexaoFactory.close(crs);
             System.out.println("Registro alterado com sucesso");
