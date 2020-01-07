@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ThreadTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZDthreads.test.ThreadTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - TesteCRUD",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZCjdbc.test.TesteCRUD",
