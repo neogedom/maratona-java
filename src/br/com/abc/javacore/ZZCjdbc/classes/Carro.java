@@ -1,29 +1,22 @@
 package br.com.abc.javacore.ZZCjdbc.classes;
 
 /**
- * Comprador
+ * Carro
  */
-public class Comprador {
+public class Carro {
     private Integer id;
-    private String cpf;
     private String nome;
+    private String placa;
+    private Comprador comprador;
 
-    public Comprador() {
+    public Carro() {
     }
 
-    public Comprador(Integer id) {
+    public Carro(Integer id, String nome, String placa, Comprador comprador) {
         this.id = id;
-    }
-
-    public Comprador(Integer id, String cpf, String nome) {
-        this.id = id;
-        this.cpf = cpf;
         this.nome = nome;
-    }
-
-    public Comprador(String cpf, String nome) {
-        this.cpf = cpf;
-        this.nome = nome;
+        this.placa = placa;
+        this.comprador = comprador;
     }
 
     public Integer getId() {
@@ -34,20 +27,33 @@ public class Comprador {
         this.id = id;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public Comprador getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(Comprador comprador) {
+        this.comprador = comprador;
+    }
+
+    @Override
+    public String toString() {
+        return "Carro [comprador=" + comprador + ", id=" + id + ", nome=" + nome + ", placa=" + placa + "]";
     }
 
     @Override
@@ -66,7 +72,7 @@ public class Comprador {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Comprador other = (Comprador) obj;
+        Carro other = (Carro) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
@@ -75,12 +81,6 @@ public class Comprador {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "Comprador [cpf=" + cpf + ", id=" + id + ", nome=" + nome + "]";
-    }
     
-    
-    
-    
+
 }

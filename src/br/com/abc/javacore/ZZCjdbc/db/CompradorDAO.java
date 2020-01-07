@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,6 +93,25 @@ public class CompradorDAO {
             }
             ConexaoFactory.close(rs);
             return compradorList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static Comprador searchById(Integer id) {
+        String sql = "SELECT id, nome, cpf FROM comprador WHERE id LIKE ?;\n";
+        try (Connection conn = ConexaoFactory.getConexao(); 
+        PreparedStatement pstmt = conn.prepareStatement(sql);) {
+            pstmt.setString(1, "%"+id+"%");
+            ResultSet rs = pstmt.executeQuery();
+            Comprador comprador = null;
+            if (rs.next()) {
+                comprador = new Comprador(rs.getInt("id"), rs.getString("cpf"), rs.getString("nome"));
+            }
+            ConexaoFactory.close(rs);
+            return comprador;
         } catch (SQLException e) {
             e.printStackTrace();
         }
