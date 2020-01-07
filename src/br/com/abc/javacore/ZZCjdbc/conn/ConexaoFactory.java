@@ -129,6 +129,16 @@ public class ConexaoFactory {
         }
     }
 
+    public static void close(ResultSet resultSet) {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void close(JdbcRowSet jrs) {
         try {
             if (jrs != null) {

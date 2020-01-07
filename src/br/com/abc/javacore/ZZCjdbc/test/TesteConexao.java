@@ -1,7 +1,7 @@
 package br.com.abc.javacore.ZZCjdbc.test;
 
 import br.com.abc.javacore.ZZCjdbc.classes.Comprador;
-import br.com.abc.javacore.ZZCjdbc.db.CompradorDB;
+import br.com.abc.javacore.ZZCjdbc.db.CompradorDBOLD;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -19,58 +19,58 @@ public class TesteConexao {
         // List<Comprador> compradorList2 = listarPorNome("oão");
 
         // System.out.println(compradorList2);
-        // CompradorDB.selectMetadata();
-        // CompradorDB.checkDriverStatus();
-        // CompradorDB.testTypeScroll();
-        // CompradorDB.updateNomesToLowerCase();
+        // CompradorDBOLD.selectMetadata();
+        // CompradorDBOLD.checkDriverStatus();
+        // CompradorDBOLD.testTypeScroll();
+        // CompradorDBOLD.updateNomesToLowerCase();
 
         // Perigo: SQLInjection
-        // System.out.println(CompradorDB.searchByNamePreparedStatement("oao' or
+        // System.out.println(CompradorDBOLD.searchByNamePreparedStatement("oao' or
         // 'X'='X"));
         // X = X elimina todo o where
         // O PreparedStatement não deixa colocar o apóstrofo e ao invés de colocar o
         // parâmetro, troca por um
         // wildcard ?
-        // System.out.println(CompradorDB.searchByNamePreparedStatement("oao"));
-        // CompradorDB.updatePreparedStatement(new Comprador(1, "011.011.011-01",
+        // System.out.println(CompradorDBOLD.searchByNamePreparedStatement("oao"));
+        // CompradorDBOLD.updatePreparedStatement(new Comprador(1, "011.011.011-01",
         // "Prepared Statement da Silva"));
-        // System.out.println(CompradorDB.searchByNameCallableStatement("ao"));
-        // System.out.println(CompradorDB.searchByNameRowSet("oao"));
-        // CompradorDB.updateRowSet(new Comprador(1, "011.011.011-01", "Row Set de
+        // System.out.println(CompradorDBOLD.searchByNameCallableStatement("ao"));
+        // System.out.println(CompradorDBOLD.searchByNameRowSet("oao"));
+        // CompradorDBOLD.updateRowSet(new Comprador(1, "011.011.011-01", "Row Set de
         // Oliveira"));
         // Não deu certo por causa do autocommit
-        // CompradorDB.updateRowSetCached(new Comprador(1, "011.011.011-01", "Row Set de
+        // CompradorDBOLD.updateRowSetCached(new Comprador(1, "011.011.011-01", "Row Set de
         // Oliveira"));
-        try {
-            CompradorDB.saveTransaction();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        // try {
+        //     CompradorDBOLD.saveTransaction();
+        // } catch (SQLException e) {
+        //     e.printStackTrace();
+        // }
        
 
     }
 
     public static void inserir() {
         Comprador comprador = new Comprador("111.111.111-11", "Priscila");
-        CompradorDB.save(comprador);
+        CompradorDBOLD.save(comprador);
     }
 
     public static void deletar() {
         Comprador comprador = new Comprador();
         comprador.setId(2);
-        CompradorDB.delete(comprador);
+        CompradorDBOLD.delete(comprador);
     }
 
     public static void atualizar() {
         Comprador comprador = new Comprador(1, "000.000.000-11", "MARIA");
-        CompradorDB.update(comprador);
+        CompradorDBOLD.update(comprador);
     }
 
     public static List<Comprador> selecionarTudo() {
-        return CompradorDB.selectAll();
+        return CompradorDBOLD.selectAll();
     }
 
     public static List<Comprador> listarPorNome(String nome) {
-        return CompradorDB.searchByName(nome);
+        return CompradorDBOLD.searchByName(nome);
     }
 }

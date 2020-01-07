@@ -23,7 +23,7 @@ import br.com.abc.javacore.ZZCjdbc.conn.ConexaoFactory;
 /**
  * CompradorDB
  */
-public class CompradorDB {
+public class CompradorDBOLD {
 
     public static void save(Comprador comprador) {
         String sql = "INSERT INTO `agencia`.`comprador` (`cpf`, `nome`) VALUES ('" + comprador.getCpf() + "', '"
