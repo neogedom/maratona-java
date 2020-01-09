@@ -48,6 +48,8 @@ public class ContaTest implements Runnable {
         // sincronizando blocos de código
         // é bom que a variável (endereço de memória) que está submetida ao sincronismo
         // seja final, para que não seja possível atribuir nenhum outro objeto pra ela
+        // Cada thread tem uma cópia da sua variável local
+        //O synchronized protege por instância da classe, não para todas as instâncias criadas
         synchronized (conta) {
             if (conta.getSaldo() >= valor) {
                 System.out.println(Thread.currentThread().getName() + " está indo sacar");
@@ -69,8 +71,10 @@ public class ContaTest implements Runnable {
         }
     }
 
-    //Usar synchronized em métodos estáticos é como se eu estivesse
-    // sincronizando a classe inteira assim synchronized(ContaTest.class) {}
+    //Usar synchronized em métodos estáticos trabalha com o lock da classe
+    // diferente de usar synchronized em método não  estáticos que cada instância 
+    // tem seu próprio lock
+    // Não acesse métodos estáticos com atributos estáticos, nem vice versa
     public static synchronized void imprime() {
         
     }
