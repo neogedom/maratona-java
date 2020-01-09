@@ -67,14 +67,30 @@ class ThreadExemploRunnable implements Runnable {
             if (i % 100 == 0) {
                 System.out.println();
             }
+            //Provavelmente levará a Thread do estado running de volta para o runnable
+            // e dará chance para outra thread de mesma prioridade ser executada
+            if(!Thread.currentThread().getName().equals("T4")) {
+                Thread.yield();
+            }
+            try {
+                //Colocar a thread para dormir por 2 segundos
+                // É a única maneira de forçar uma pausa entre as threads
+                // Mas você só garante que ela vai dormir, você não garante que ela
+                // vai voltar depois dos 2000 milissegundos. Ela dorme por pelo menos 2000 ms
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
+      
     }
 
 }
 
 public class ThreadTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         //Para descobrir o nome da thread que está executando nesse momento
         System.out.println(Thread.currentThread().getName());
         //Usando o jeito errado
@@ -84,26 +100,37 @@ public class ThreadTest {
         // ThreadExemplo t4 = new ThreadExemplo('D');
 
         // usando o jeito certo
-        Thread t1 = new Thread(new ThreadExemploRunnable('A'));
-        Thread t2 = new Thread(new ThreadExemploRunnable('B'));
-        Thread t3 = new Thread(new ThreadExemploRunnable('C'));
-        Thread t4 = new Thread(new ThreadExemploRunnable('D'));
+        //T1 é o nome da Thread
+        Thread t1 = new Thread(new ThreadExemploRunnable('A'), "T1");
+        Thread t2 = new Thread(new ThreadExemploRunnable('B'), "T2");
+        Thread t3 = new Thread(new ThreadExemploRunnable('C'), "T3");
+        Thread t4 = new Thread(new ThreadExemploRunnable('D'), "T4");
 
+        
+        //Definindo que a t4 tenha maior prioridade. Na maioria (não em todas) as JVM
+        // a prioridade vai de 1 a 10. Como não é possível saber qual os valores de pioridade 
+        // daquela JVM (que pode ser de várias empresas) é uma boa prática usar as constantes definidas
+        // na classe Thread (MAX_PRIORITY, MIN_PRIORITY e NORM_PRIORITY)
+        //Na maioria dos casos (não em todos) o scheduler vai escolher primeiro a Thread que tem maior 
+        // prioridade
+        t4.setPriority(Thread.MAX_PRIORITY);
         //Com o run inicia a mesma thread
         // Para iniciar uma thread usa o método start
         // Para executar uma thread, chame o start e não o run
         //Embora tenhamos uma ordem no código, o start dela não é pela mesma ordem
         t1.start();
+        //O método join diz para a thread main esperar até t1 ser executado pra startar a próxima thread
+        t1.join();
         t2.start();
-        t3.start();
-        t4.start();
+        // t3.start();
+        // t4.start();
 
         //Uma vez que você starta uma thread, você não pode startar ela de novo 
         // (nem mesmo ressuscitar ela) Se assim o fizer, terás uma exceção
 
         //Estados das Threads
     // New (Colocado em new é quando o objeto é criado. Não significa que ela será executada), 
-    ]// Runnable (ela só é considerada vida a partir daqui. Acontece quando dá o start), 
+    // Runnable (ela só é considerada vida a partir daqui. Acontece quando dá o start), 
     // Running (quando executa o método run), 
     // Waiting / blocking/ sleeping (esses estados podem acontecer por vontade do desenvolvedor ou por consequência da ação de sistemas de terceiros. Quando qualquer desses estados termina, a thread volta para o Runnable e não vai para o Running), 
     // Dead (Quando ela morre, o método run() foi completado. Não dá pra ressuscitar. Se quiser, tem que criar outro objeto)
@@ -111,6 +138,7 @@ public class ThreadTest {
     //Antes, uma thread dizia para a outra parar, mas esses métodos estão ficando depreciados
     //Agora é a própria thread que toma a decisão de parar ou não
     
+    //O método sleep pode desativar temporariamente a Thread sem precisar matá-la
     }
 
 }
