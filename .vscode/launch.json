@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ConcorrenciaTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.ConcorrenciaTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DeadLockTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZDthreads.test.DeadLockTest",
