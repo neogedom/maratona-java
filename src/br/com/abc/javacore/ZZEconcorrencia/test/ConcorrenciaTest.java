@@ -4,6 +4,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+// O pacote java.util.Concurrent abstrai em alto nível os problemas de concorrência
+// É preferível usá-lo ao invés das classes Thread e Runnable, que são o mais baixo nível
+// de programação com threads
 class Contador {
     private int contador;
     private AtomicInteger atomicInteger = new AtomicInteger();

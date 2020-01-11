@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - EntregadorTeste",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.EntregadorTeste",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - LockTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.LockTest",

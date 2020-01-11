@@ -8,7 +8,7 @@ import br.com.abc.javacore.Fmodificadorestatico.classes.Carro;
 public class CarroTest {
 
     public static void main(String[] args) {
-        // Ao alterar o atributo static você altera o atributo de todos os objetos
+        // Ao alterar o atributo static você altera o atributo de todos os objetos(instâncias)
         // Você não deve acessar um atributo estático por meio de um objeto, mas direto
         // na classe
         // Métodos estáticos podem buscar e alterar valores sem nenhum objeto ter sido criado
