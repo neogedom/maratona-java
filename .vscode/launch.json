@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LinkedTransferQueueTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.LinkedTransferQueueTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LinkedTransferQueue",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.LinkedTransferQueue",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - BlockingQueueTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.BlockingQueueTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ConcorrenciaDeColecoes",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.ConcorrenciaDeColecoes",
