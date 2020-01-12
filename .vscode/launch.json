@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ConcorrenciaDeColecoes",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.ConcorrenciaDeColecoes",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - CopyOnWriteTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.CopyOnWriteTest",

@@ -41,28 +41,25 @@ public class ListTest {
         // Não é possível usar tipos primitivos no Generics, pq o Java faz uso dos
         // métodos equals e hashcode dos tipos Wrapper
         List<String> nomes = new ArrayList<>();
-        List<String> nomes2 = new ArrayList<>();        
+        List<String> nomes2 = new ArrayList<>();
         nomes.add("Vinícius");
         nomes.add("IFMS");
         nomes2.add("Vinícius2");
         nomes2.add("IFMS2");
-        
 
-
-        //Removendo por índice
+        // Removendo por índice
         // nomes.remove(0);
 
         System.out.println(nomes.size());
-        //Removendo por objeto
-        //Ao remover pelo objeto, as Collections fazem uso do equals
-        System.out.println(nomes.remove("IFMS")); //esse método retorna boolean
+        // Removendo por objeto
+        // Ao remover pelo objeto, as Collections fazem uso do equals
+        System.out.println(nomes.remove("IFMS")); // esse método retorna boolean
 
-        //Verificando o tamanho
+        // Verificando o tamanho
         System.out.println(nomes.size());
 
-        //Adicionando outro List sem usar for
+        // Adicionando outro List sem usar for
         nomes.addAll(nomes2);
-
 
         // Com Generics no ArrayList é possível usar o foreach com o tipo do objeto do
         // elemento
@@ -75,29 +72,29 @@ public class ListTest {
 
         for (String nome : nomes) {
 
-        // Não é possível chamar o add() dentro de um foreach
-        // Isso pq ao entrar no foreach o java já sabe o tamanho (início e fim) dele
-        // alterando alguma coisa na lista dentro do foreach, eu alteraria o tamanho
-        // da
-        // lista
-        // e o foreach perderia a referência de tamanho que ele tem
-        // nomes.add("Homem");
-        System.out.println(nome);
+            // Não é possível chamar o add() dentro de um foreach
+            // Isso pq ao entrar no foreach o java já sabe o tamanho (início e fim) dele
+            // alterando alguma coisa na lista dentro do foreach, eu alteraria o tamanho
+            // da
+            // lista
+            // e o foreach perderia a referência de tamanho que ele tem
+            // nomes.add("Homem");
+            System.out.println(nome);
         }
 
         // // Mostrando o problema do add dentro de um for
         // for (int i = 0; i < nomes.size(); i++) {
-        //     System.out.println(nomes.get(i));
-        //     nomes.add("Goku");
+        // System.out.println(nomes.get(i));
+        // nomes.add("Goku");
         // } // Para resolver isso, só criando um int size = nomes.size() fora do for
-        //   // pq o objeto de comparação contra o qual a variável i está sendo comparado
-        //   // não cresce indefinidamente
-        
+        // // pq o objeto de comparação contra o qual a variável i está sendo comparado
+        // // não cresce indefinidamente
+
         // Para limpar a lista
         nomes.clear();
 
         // A partir do Java 8 é possível trocar o foreach por isso
         // nomes.forEach(System.out::println);
-        
+
     }
 }

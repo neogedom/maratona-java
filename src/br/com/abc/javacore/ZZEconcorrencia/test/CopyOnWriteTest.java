@@ -46,11 +46,14 @@ public class CopyOnWriteTest implements Runnable {
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
+           
             e.printStackTrace();
         }
 
         // Não faça remoção nem adição usando o iterator
+        // Ele tira uma snapshot da lista/set no momento em que é chamado para ser iterado
+        // durante a iteração, os elementos podem mudar, pq outras threads podem acessar
+        // pois as listas em CopyOnWriteArrayList não ganham lock ao serem modificadas
         while (iterator.hasNext()) {
             System.out.println(Thread.currentThread().getName() + " " + iterator.next());
         }
