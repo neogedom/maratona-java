@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - CopyOnWriteTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.CopyOnWriteTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - MapReadWriteLockTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.MapReadWriteLockTest",
