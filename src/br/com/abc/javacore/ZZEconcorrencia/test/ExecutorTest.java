@@ -9,6 +9,8 @@ import java.util.concurrent.ThreadPoolExecutor;
  * das tarefas Assim, o processador perde menos tempo organizando as threads
  */
 
+ 
+
 class ThreadTrabalhadoraExecutor implements Runnable {
     private String num;
 

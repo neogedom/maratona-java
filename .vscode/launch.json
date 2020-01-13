@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - CallableTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.CallableTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ScheduledThreadPoolTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZEconcorrencia.test.ScheduledThreadPoolTest",
