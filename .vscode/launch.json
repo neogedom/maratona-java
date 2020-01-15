@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - AviaoSingletonEnumTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZFpadroesdeprojeto.test.AviaoSingletonEnumTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AviaoSingletonTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZFpadroesdeprojeto.test.AviaoSingletonTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - TestePessoa",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZFpadroesdeprojeto.test.TestePessoa",

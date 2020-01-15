@@ -1,11 +1,12 @@
-package br.com.abc.javacore.ZZCjdbc.test;
+package br.com.abc.javacore.ZZFpadroesdeprojeto.test;
 
 import java.util.List;
 import java.util.Scanner;
 
-import br.com.abc.javacore.ZZCjdbc.classes.Carro;
-import br.com.abc.javacore.ZZCjdbc.classes.Comprador;
-import br.com.abc.javacore.ZZCjdbc.db.CarroDAOImpl;
+import br.com.abc.javacore.ZZFpadroesdeprojeto.classes.Carro;
+import br.com.abc.javacore.ZZFpadroesdeprojeto.classes.Comprador;
+import br.com.abc.javacore.ZZFpadroesdeprojeto.db.CarroDAOImpl;
+import br.com.abc.javacore.ZZFpadroesdeprojeto.interfaces.CarroDAO;
 
 /**
  * CarroCRUD
@@ -13,6 +14,8 @@ import br.com.abc.javacore.ZZCjdbc.db.CarroDAOImpl;
 public class CarroCRUD {
 
     private static Scanner teclado = new Scanner(System.in);
+    //Em DAO, instanciar aqui a implementação de carroDAO para db, orientada à interface 
+    private static CarroDAO dao = new CarroDAOImpl();
 
     public static void executar(int op) {
         switch (op) {
@@ -43,7 +46,7 @@ public class CarroCRUD {
         System.out.println("Selecione um dos compradores da lista");
         List<Comprador> compradorLista = CompradorCRUD.listar();
         c.setComprador(compradorLista.get(Integer.parseInt(teclado.nextLine())));
-        CarroDAO.save(c);
+        dao.save(c);
     }
 
     public static void atualizar() {
@@ -60,11 +63,11 @@ public class CarroCRUD {
         if (!cpf.isEmpty()) {
             c.setPlaca(cpf);
         }
-        CarroDAO.update(c);
+        dao.update(c);
     }
 
     public static List<Carro> listar() {
-        List<Carro> carroList = CarroDAO.selectAll();
+        List<Carro> carroList = dao.selectAll();
         for (int i = 0; i < carroList.size(); i++) {
             Carro c = carroList.get(i);
             System.out.println("[" + i + "] " + c.getNome() + " " + c.getPlaca() + " " + c.getComprador().getNome());
@@ -75,12 +78,12 @@ public class CarroCRUD {
 
     public static List<Carro> buscarPorNome() {
         System.out.println("Digite o nome do carro");
-        List<Carro> carroList = CarroDAO.searchByName(teclado.nextLine());
+        List<Carro> carroList = dao.searchByName(teclado.nextLine());
         for (int i = 0; i < carroList.size(); i++) {
             Carro c = carroList.get(i);
             System.out.println("[" + i + "] " + c.getNome() + " " + c.getPlaca() + " " + c.getComprador().getNome());
         }
-        return carroList;
+        return carroList;   
     }
 
     public static void deletar() {
@@ -90,7 +93,7 @@ public class CarroCRUD {
         System.out.println("Tem certeza? S/N");
         String op = teclado.nextLine();
         if (op.startsWith("s") || op.startsWith("S")) {
-            CarroDAO.delete(c);
+              dao.delete(c);
         }
 
     }

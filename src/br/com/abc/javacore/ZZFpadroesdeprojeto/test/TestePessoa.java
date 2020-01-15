@@ -6,7 +6,7 @@ import br.com.abc.javacore.ZZFpadroesdeprojeto.classes.Pessoa;
  * TestePessoa
  * Padrões de Projeto: experiência de vários engenheiros de software ao longo dos anos
  * para resolver problemas específicos
- * Padrão Builder: 
+ * Padrão Builder: deixa os nomes legíveis
  */
 public class TestePessoa {
 
