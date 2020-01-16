@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - MoedaFactoryTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZFpadroesdeprojeto.test.MoedaFactoryTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - AviaoSingletonEnumTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZFpadroesdeprojeto.test.AviaoSingletonEnumTest",

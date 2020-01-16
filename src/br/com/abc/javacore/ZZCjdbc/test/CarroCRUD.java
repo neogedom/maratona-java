@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import br.com.abc.javacore.ZZCjdbc.classes.Carro;
 import br.com.abc.javacore.ZZCjdbc.classes.Comprador;
-import br.com.abc.javacore.ZZCjdbc.db.CarroDAOImpl;
+import br.com.abc.javacore.ZZCjdbc.db.CarroDAO;
 
 /**
  * CarroCRUD
