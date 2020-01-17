@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LambdaTest2",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZHlambdas.test.LambdaTest2",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LambdaTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZHlambdas.test.LambdaTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - CarroTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZGcomportamentoporparamentro.test.CarroTest",

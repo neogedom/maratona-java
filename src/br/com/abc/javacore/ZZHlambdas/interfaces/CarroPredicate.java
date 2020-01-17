@@ -1,6 +1,6 @@
-package br.com.abc.javacore.ZZGcomportamentoporparamentro.interfaces;
+package br.com.abc.javacore.ZZHlambdas.interfaces;
 
-import br.com.abc.javacore.ZZGcomportamentoporparamentro.classes.Carro;
+import br.com.abc.javacore.ZZHlambdas.classes.Carro;
 
 /**
  * CarroPredicate
@@ -13,7 +13,11 @@ import br.com.abc.javacore.ZZGcomportamentoporparamentro.classes.Carro;
  * slicitações de mudança de requisitos
  */
 
+ //Interfaces funcionais possuem apenas um método obrigatório
+@FunctionalInterface
  public interface CarroPredicate {
 
+    //O método obrigatório (function descriptor) determinará como a Lambda ficará
+    // nesse caso: (Carro carro) -> expressão
     boolean test(Carro carro); 
 }
