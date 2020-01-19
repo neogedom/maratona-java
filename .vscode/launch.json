@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LambdaTest3",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZHlambdas.test.LambdaTest3",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - LambdaTest2",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZHlambdas.test.LambdaTest2",
