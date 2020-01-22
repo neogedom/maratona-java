@@ -10,6 +10,10 @@ import br.com.abc.javacore.ZZKstreams.classes.Pessoa;
 
 /**
  * StreamTest
+ * // Os Streams vêm para ajudar na manipulação de coleções que antes só podia ser feito com facilidade
+// mediante consultas ao banco de dados
+// Streams são interfaces para trabalhar com sequência de elementos (arrays, listas, arquivos, etc)
+// Nas coleções você guarda os dados, nas streams você processa (limita, extrai, ordena, busca, etc)
  */
 public class StreamTest {
 
@@ -47,5 +51,17 @@ public class StreamTest {
                         .collect(Collectors.toList());
 
         System.out.println(nomes2);
+
+       System.out.println( pessoas.stream()
+                        .distinct()
+                        .filter(p -> p.getIdade() < 25)
+                        .map(Pessoa::getNome)
+                        .count());
+        pessoas.stream().forEach(System.out::println);
     }
 }
+
+//Os métodos das Streams são divididos em dois tipos: 
+// intermediate - métodos que retornam um outro stream e permitem encadear vários métodos
+// terminal - métodos que não retornam uma stream
+    // ex.: count(), forEach(), collect()

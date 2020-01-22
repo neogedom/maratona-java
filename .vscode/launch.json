@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Treinando",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.Treinando",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - StreamTest",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZKstreams.test.StreamTest",
