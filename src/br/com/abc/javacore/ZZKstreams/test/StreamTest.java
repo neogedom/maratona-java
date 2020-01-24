@@ -47,8 +47,10 @@ public class StreamTest {
                         .filter(p -> p.getIdade() < 25)
                         .sorted(Comparator.comparing(Pessoa::getNome))
                         .limit(3)
+                        .skip(1) // pula a qtde de registros informados como parâmetro
                         .map(Pessoa::getNome) // retorna um stream como resultado da execução de um método
-                        .collect(Collectors.toList());
+                        .collect(Collectors.toList()); // collect serve para personalizar uma função final de uma stream
+                        // o Collectors é uma interface que implementa coletores prontos
 
         System.out.println(nomes2);
 
@@ -63,5 +65,6 @@ public class StreamTest {
 
 //Os métodos das Streams são divididos em dois tipos: 
 // intermediate - métodos que retornam um outro stream e permitem encadear vários métodos
-// terminal - métodos que não retornam uma stream
+// terminal - métodos que não retornam uma stream. Depois deles, não dá pra fazer mais operações
+// você precisa de uma função terminal para guardar o resultado em uma variável
     // ex.: count(), forEach(), collect()

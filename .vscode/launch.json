@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - StreaTest4Reduce",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZKstreams.test.StreaTest4Reduce",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StreamTest3",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZKstreams.test.StreamTest3",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StreamTest2",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZKstreams.test.StreamTest2",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Treinando",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.Treinando",

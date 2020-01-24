@@ -12,9 +12,9 @@ public class Pessoa {
 
     private String nome;
     private int idade;
-    private int salario;
+    private double salario;
 
-    public Pessoa(String nome, int idade, int salario) {
+    public Pessoa(String nome, int idade, double salario) {
         this.nome = nome;
         this.salario = salario;
         this.idade = idade;
@@ -24,7 +24,7 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public void setSalario(int salario) {
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 
@@ -36,7 +36,7 @@ public class Pessoa {
         return this.nome;
     }
 
-    public int getSalario() {
+    public double getSalario() {
         return this.salario;
     }
 
@@ -52,7 +52,7 @@ public class Pessoa {
                     new Pessoa("Thor", 23, 1980), 
                     new Pessoa("Hulk", 35, 8000), 
                     new Pessoa("Flash", 29, 3800),
-                    new Pessoa("Batman", 37, 100000000),
+                    new Pessoa("Batman", 37, 1000),
                     new Pessoa("Lanterna Verde", 31, 3000));
     }
 
