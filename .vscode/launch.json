@@ -2,6 +2,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - LojaTest2",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZMcompletablefuture.test.LojaTest2",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LojaTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZMcompletablefuture.test.LojaTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - FutureTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZMcompletablefuture.test.FutureTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - StreamsPararelos1",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZKstreamsparalelos.test.StreamsPararelos1",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - StreamTest6Collectors2",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZKstreams.test.StreamTest6Collectors2",
