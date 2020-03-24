@@ -18,15 +18,15 @@ public class NovaLojaTest {
     public static void main(String[] args) {
         List<NovaLoja> lojas = NovaLoja.lojas();
         // lojas.stream().forEach(novaLoja -> System.out.println(novaLoja.getPreco()));
-        acharPrecos(lojas);
+        //acharPrecos(lojas);
 
-        // final Executor executor = Executors.newFixedThreadPool(Math.min(lojas.size(), 100), r -> {
-        //     Thread t = new Thread(r);
-        //     t.setDaemon(true);
-        //     return t;
-        // });
+        final Executor executor = Executors.newFixedThreadPool(Math.min(lojas.size(), 100), r -> {
+            Thread t = new Thread(r);
+            t.setDaemon(true);
+            return t;
+        });
 
-        // acharPrecosAsync(lojas, executor);
+        acharPrecosAsync(lojas, executor);
 
     }
 
@@ -50,9 +50,11 @@ public class NovaLojaTest {
         // Pegando o preço original de forma assíncrona
         .map(loja -> CompletableFuture.supplyAsync(loja::getPreco, executor))
         // Transforma a string em um Orçamento no momento em que ele se torna disponível
+        // Uso thenApply quando tenho um processamento síncrono na sequência
         .map(future -> future.thenApply(Orcamento::parse))
         // Compõe o primeiro future com mais um async para pegar os descontos
         // no momento que a primeira requisição assíncrona estiver disponível
+        // Uso thenCompose quando tenho um processamento assíncrono na sequência
         .map(future -> future.thenCompose(orcamento -> 
         CompletableFuture.supplyAsync(() -> Desconto.calcularDesconto(orcamento), executor)))
             .collect(Collectors.toList());

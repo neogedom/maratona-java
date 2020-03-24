@@ -9,12 +9,12 @@ public class Orcamento {
 
     private final String nomeLoja;
     private final double preco;
-    private final Desconto.Codigo codigoDeCodigo;
+    private final Desconto.Codigo codigoDesconto;
 
-    public Orcamento(String nomeLoja, double preco, Codigo codigoDeCodigo) {
+    public Orcamento(String nomeLoja, double preco, Codigo codigoDesconto) {
         this.nomeLoja = nomeLoja;
         this.preco = preco;
-        this.codigoDeCodigo = codigoDeCodigo;
+        this.codigoDesconto = codigoDesconto;
     }
 
     public static Orcamento parse(String s) {
@@ -34,8 +34,8 @@ public class Orcamento {
         return preco;
     }
 
-    public Desconto.Codigo getCodigoDeCodigo() {
-        return codigoDeCodigo;
+    public Desconto.Codigo getCodigoDesconto() {
+        return codigoDesconto;
     }
 
     
