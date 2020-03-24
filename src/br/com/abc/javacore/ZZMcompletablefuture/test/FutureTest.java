@@ -8,7 +8,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 /**
- * FutureTest CompletableFuture para realizar programação assíncrona
+ * CompletableFuture para realizar programação assíncrona
  * O Future mantém o processador sempre ocupado
  * Não cria outra thread para ficar esperando o resultado do processamento
  * assíncrono, então não desperdiça performance

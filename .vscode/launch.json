@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - NovaLojaTest",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZMcompletablefuture.test.NovaLojaTest",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - LojaTest2",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZMcompletablefuture.test.LojaTest2",
