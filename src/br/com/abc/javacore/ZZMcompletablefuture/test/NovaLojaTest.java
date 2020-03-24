@@ -5,6 +5,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import br.com.abc.javacore.ZZMcompletablefuture.classes.Desconto;
 import br.com.abc.javacore.ZZMcompletablefuture.classes.NovaLoja;
@@ -26,7 +27,20 @@ public class NovaLojaTest {
             return t;
         });
 
-        acharPrecosAsync(lojas, executor);
+       // acharPrecosAsync(lojas, executor);
+       long start = System.currentTimeMillis();
+       CompletableFuture [] completableFuture = acharPrecosStream(lojas, executor)
+                .map(f -> f.thenAccept(s -> System.out.println(s + "( finalizado em: " + 
+                    (System.currentTimeMillis() - start + " ) "))))
+                .toArray(CompletableFuture[]::new);
+
+       // Recebe um array de CompletableFutures
+       // Retorna um CompletableFuture que é completado quando todos os CompletableFuture dados são completados
+      // CompletableFuture.allOf(completableFuture).join();
+      // anyOf retorna quando um dos CompletabkeFuture dados é completado. Útil para pegar apenas a resposta do serviço
+      // mais rápido
+       CompletableFuture.anyOf(completableFuture).join();
+       System.out.println("Todas as lojas responderam em: " + (System.currentTimeMillis() - start + " ms"));
 
     }
 
@@ -66,5 +80,19 @@ public class NovaLojaTest {
         System.out.println("Tempo total: " + (System.currentTimeMillis() - start + " ms"));
         System.out.println(collect);
         return collect;
+    }
+
+    private static Stream<CompletableFuture<String>> acharPrecosStream(List<NovaLoja> lojas, Executor executor) {
+        System.out.println(" Completable Future Async Stream");
+        long start = System.currentTimeMillis();
+        Stream<CompletableFuture<String>> completableFutureStream = lojas.stream()
+        .map(loja -> CompletableFuture.supplyAsync(loja::getPreco, executor))
+         .map(future -> future.thenApply(Orcamento::parse))
+          .map(future -> future.thenCompose(orcamento -> 
+                CompletableFuture.supplyAsync(() -> Desconto.calcularDesconto(orcamento), executor)));
+
+        
+        System.out.println("Tempo total: " + (System.currentTimeMillis() - start + " ms"));
+        return completableFutureStream;
     }
 }
