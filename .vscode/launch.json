@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DateTimeAPI3",
+            "request": "launch",
+            "mainClass": "br.com.abc.javacore.ZZNdatetime.test.DateTimeAPI3",
+            "projectName": "JavaOnline"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DateTimeAPITest2",
             "request": "launch",
             "mainClass": "br.com.abc.javacore.ZZNdatetime.test.DateTimeAPITest2",

@@ -44,7 +44,7 @@ public class DateTimeAPITest2 {
         Duration d1 = Duration.between(dt1, dt2);
         Duration d2 = Duration.between(time1, time2);
         Duration d3 = Duration.between(Instant.now(), Instant.now().plusSeconds(1000));
-        // Não pode mistrurar LocalDateTime com LocalTime
+        // Não pode misturar LocalDateTime com LocalTime
         // Duration d4 = Duration.between(dt1, time1);
         // Nem pode usar LocalDate no Duration, pois LocalDate não trabalha com horas, minutos e segundos
         // Duration d5 = Duration.between(LocalDate.now(), LocalDate.now().plusDays(20));
