@@ -4,7 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 
-import br.com.abc.javacore.ZZNdatetime.test.util.ObterProximoDiaUtil;
+import br.com.abc.javacore.ZZNdatetime.util.ObterProximoDiaUtil;
 
 /**
  * DateTimeAPITest4

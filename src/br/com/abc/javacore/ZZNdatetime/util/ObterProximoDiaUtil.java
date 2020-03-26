@@ -1,4 +1,4 @@
-package br.com.abc.javacore.ZZNdatetime.test.util;
+package br.com.abc.javacore.ZZNdatetime.util;
 
 import java.time.DayOfWeek;
 import java.time.temporal.ChronoField;
